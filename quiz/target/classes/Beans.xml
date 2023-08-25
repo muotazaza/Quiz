@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="question1" class="com.quiz.quiz.Questions">
+        <property name="questionsText" value="Is Java An OOP Language"/>
+        <property name="answers" >
+            <list>
+                <bean class="com.quiz.quiz.Answer">
+                    <property name="id" value="a1"/>
+                    <property name="answerString" value="yes"/>
+                    <property name="SubmittedBy" value="Bill"/>
+                </bean>
+                <bean class="com.quiz.quiz.Answer">
+                    <property name="id" value="a2"/>
+                    <property name="answerString" value="no"/>
+                    <property name="SubmittedBy" value="John"/>
+                </bean>
+                <bean class="com.quiz.quiz.Answer">
+                    <property name="id" value="a3"/>
+                    <property name="answerString" value="yes"/>
+                    <property name="SubmittedBy" value="Jack"/>
+                </bean>
+
+            </list>
+        </property>
+    </bean>
+
+    <bean id="QuizApp" class="com.quiz.quiz.QuizApp">
+        <constructor-arg name="questions">
+            <list>
+                <ref bean="question1"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
